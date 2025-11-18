@@ -1,0 +1,175 @@
+#solicitudFolletoPresentacion {
+    margin: 20px 0 0 20px;
+}
+
+#seccion-precios{
+    position: fixed;
+    top: 0;
+    overflow: auto;
+    text-align: center;
+    width: 100vw;
+    height: 100%;
+    background: #00000080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#tablaPrecios {
+    background: #fff;
+    padding: 100px;
+    border: 3px solid var(--colorBordeBoton);
+    max-width: 95%;
+    max-height: 90%;
+    overflow: auto;
+    box-sizing: border-box;
+    display: block;
+}
+
+#tablaPrecios table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+#tablaPrecios * {
+    padding: 10px 20px;
+}
+#tablaPrecios th{
+    background-color: var(--colorCeldaOscura);
+}
+#tablaPrecios td{
+    background-color: var(--colorCeldaClara);
+}
+
+.ocultarTabla {
+    z-index: -1;
+    opacity: 0;
+    transition: .6s ease-out;
+}
+
+.mostrarTabla{
+    z-index: 2;
+    opacity: 1;
+    transition: .6s ease-in;
+
+}
+
+.celdaOscura {
+    background-color: var(--colorCeldaOscura);
+}
+
+.celdaClara {
+    background-color: var(--colorCeldaClara);
+}
+
+#solcitarFolleto {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: var(--colorCeldaClara);
+}
+
+h3 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: var(--tamFuenteGrande);
+}
+
+#sectionTarifas {
+    width: 30%;
+    background: var(--colorNav);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#sectionFormFolleto {
+    width: 70%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+#formFolleto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+    width: 100%;
+    align-items: start;
+}
+
+#formFolleto p {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    #tablaPrecios {
+        padding: 15px;
+        max-width: 98%;
+        max-height: 85%;
+    }
+
+    #tablaPrecios * {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #solicitudFolletoPresentacion {
+        margin: 20px 0 0 20px;
+    }
+
+    #tablaPrecios {
+        padding: 10px;
+        max-width: 98%;
+        max-height: 80%;
+    }
+
+    #tablaPrecios * {
+        padding: 4px 8px;
+        font-size: 0.75em;
+    }
+
+    #solcitarFolleto {
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 100%;
+        width: 100%;
+        background: var(--colorCeldaClara);
+    }
+
+    #sectionTarifas {
+        width: 90%;
+        background: var(--colorNav);
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #sectionFormFolleto {
+        width: 100%;
+        padding: 30px 20px;
+        box-sizing: border-box;
+    }
+
+    #formFolleto {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px 30px;
+        width: 100%;
+        align-items: start;
+    }
+
+    #formFolleto p {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}

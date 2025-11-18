@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+:root {
+    --colorHeader: #5C84FE;
+    --colorFondo: #D7E7FF;
+    --colorFondoClaro: aliceblue;
+    --colorBordeBoton: #A461EF;
+    --colorBoton: #fcf5ff;
+    --colorBotonHover: #F1D1FF;
+    --colorNav: #9FCFFF;
+    --colorTextoMensaje: #fffac7;
+    --colorArticulo: #FFF691;
+    --sombra: #00000050;
+    --colorBordesArticulos: lightgrey;
+    --colorFuente: black;
+    --colorCeldaOscura: #B0CFFF;
+    --colorCeldaClara: #e4ecff;
+    --colorBordes: black;   
+    --colorBordesArticulos: inherit;
+    --colorFuenteMenu: #5C2090;
+    --colorBordeError: red;
+    --colorFondoError: #eed8d8;
+    --tamFuenteSuperGrande: 2em;
+    --tamFuenteGrande: 1.5em;
+    --tamFuenteMediana: 1.2em;
+    --tamFuentePequena: 1em;
+}
+
+* {
+    font-family: "Comic Relief";
+    color: var(--colorFuente);
+}
+
+html {
+    background-color: var(--colorHeader);
+}
+
+body {
+    background-color: var(--colorFondo);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+i {
+    padding-right: 1em;
+}
+
+header {
+    text-align: center;
+    background-color: var(--colorHeader);
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    padding: 2em 0 2em 0;
+    > nav > ul {
+        /* display: flex; */
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        align-items: center; /* ESTO HA ALINEADO DE FORMA VERTICAL */
+        list-style-type: none;
+        padding-right: 1em;
+
+        > li {
+            display: flex;
+            float:left;
+            padding: 0 1em 0 1em; /* top right bottom left */
+        
+            > a {
+                text-decoration: none;
+                color: var(--colorFuente);
+            }
+        }
+    }
+
+}
+
+.imagen_articulo { 
+    width: 100%;
+    height: 200px;
+    object-fit: cover;        /* para que las fotos no se vean deformes */        
+    border-radius: 10px 10px 0px 0px;
+}
+
+#ultimos4 {
+    background-color: var(--colorFondoClaro);
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#ul_ultimos_anuncios {
+    list-style-type: none; /* para quitar los puntitos de las listas */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 0; /* para que no se quede tirado a la derecha los articles */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    > li {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+
+    > li > article {
+        position: relative;
+        width: 100% !important;
+        height: auto !important;
+        border: 1px solid var(--colorBordesArticulos);
+        background: var(--colorArticulo);
+        box-shadow: 1px 1px 10px var(--sombra);
+        border-radius: 10px;
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+
+    > li > article > a {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        align-items: flex-start !important;
+        text-decoration: none;
+        color: var(--colorFuente);
+        width: 100%;
+        padding: 10px;
+    }
+
+    > li > article > a > img {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: 60px !important;
+        height: 60px !important;
+        min-width: 60px !important;
+        max-width: 60px !important;
+        object-fit: cover;
+        border-radius: 0;
+        flex-shrink: 0;
+        margin: 0 !important;
+        padding: 0;
+    }
+
+    > li > article > a > h4 {
+        margin: 0 !important;
+        margin-left: 80px !important;
+        padding: 0 !important;
+        font-size: var(--tamFuenteMediana);
+        font-weight: 700;
+        word-break: break-word;
+        white-space: normal;
+        width: 100%;
+    }
+
+    > li > article > a > p {
+        margin: 0 !important;
+        margin-left: 80px !important;
+        padding: 0 !important;
+        font-size: var(--tamFuentePequena);
+        flex-shrink: 1;
+        width: calc(100% - 80px);
+    }
+
+    > li > article > a > p.detalles {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 0.9em;
+        flex-shrink: 1;
+    }
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.a_tituloPublicacion {
+    display: block;
+    text-decoration: none;
+    color: var(--colorFuente);
+    font-size: var(--tamFuentePequena);
+    font-weight: 700;
+    margin: 10px;
+}
+
+.p_descripcionA {
+    font-size: var(--tamFuenteMediana);
+    padding: 5px;
+    margin: 10px;
+    clear: both; /* como he movido elementos com el float y quiero que este se quede si o si debajo de ellos, se pone esto para evitar que se meta entre medio de los floats y haga cosas raras */
+}
+
+.fecha, .precio, .pais, .ciudad {
+    margin: 20px 20px 0 20px;
+    font-weight: 600;
+}
+
+.fecha {
+    float: left;
+    clear: left;
+}
+
+.precio {
+    float: right;
+    clear: right;
+}
+
+.pais {
+    float: left;
+    clear: left;
+}
+
+.ciudad {
+    float: right;
+    clear: right;
+    margin-bottom: 10px;
+}
+
+
+.menu {
+    border: 3px solid var(--colorBordeBoton);
+    width: fit-content;
+    box-sizing: border-box;
+    padding: 10% 0 10% 10%;
+    display: block;
+    background: var(--colorBoton);
+    border-radius: 4px;
+    cursor: pointer;
+    > p {
+        margin: 0;
+    }
+
+    grid-column: 1;
+}
+
+
+menu:hover {
+    background: var(--colorBotonHover);
+    border: 3px solid var(--colorBoton);
+}
+
+#acceder {
+    border: 3px solid var(--colorBordeBoton);
+    box-sizing: border-box;
+    padding: 10% 10%;
+    display: block;
+    background: var(--colorBoton);
+    border-radius: 4px;
+    cursor: pointer;
+    > a {
+        display: block;
+    }
+
+    grid-column: 9;       
+}
+
+#acceder:hover {
+    background: var(--colorBotonHover);
+    border: 3px solid var(--colorBoton);
+}
+
+.boton {
+    padding: 10px 20px;
+    border: 3px solid var(--colorBordeBoton);
+    border-radius: 4px;
+    background: var(--colorBoton);
+    cursor: pointer;
+}
+
+.boton:hover {
+    background: var(--colorBotonHover);
+    border: 3px solid var(--colorBoton);
+}
+
+
+
+#index {
+    font-size: var(--tamFuenteSuperGrande);
+    grid-column: 5;
+
+    > a {
+        font-family: "DynaPuff";
+    }
+}
+
+footer {
+    background: var(--colorHeader);
+    text-align: center;
+    width: 100%;
+    padding: 1em 0 1em 0; 
+    font-weight: 600;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: var(--tamFuenteSuperGrande);
+    color: var(--colorFuente);
+}
+
+.input_select {
+    background-color: var(--colorBoton);
+    border-color: var(--colorBordeBoton);
+    border-radius: 20px;
+}
+
+.input_select:hover {
+    background-color: var(--colorBotonHover);
+    border-color: var(--colorBordeBoton);
+}
+
+.todos_enlaces {
+    > a {
+        display: flex;
+        width: fit-content;
+    }
+}
+
+nav label[for="burger_menu"], #burger_menu, label[for="menu_estilo"], #menu_estilo { /* para que no se vea el checkbox*/
+    display: none;
+    color: var(--colorFuente);
+    
+}
+
+#nav_nav {
+    position: sticky;               /* es un fixed pero para que se mueva a top: 0 cuando se baje mas del header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 200;
+}
+
+
+.menu:not(#paginacion .menu) {
+    flex-direction: column;
+}
+
+.menu_head {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    position: absolute;
+    width: max-content;
+    padding-right: 1vw;
+    padding-left: 6em;
+    top: 30px;
+    left: 0;
+    transform: translateX(-1000%);
+    text-align: center;
+    background-color: var(--colorBordeBoton);
+    transition: 1s;
+    gap: 0;
+    font-size: var(--tamFuenteMediana);
+
+    > li {
+        padding-bottom: 0;
+        > a {
+            display: block;
+            color: var(--colorFuenteMenu);
+            text-decoration: none;
+        }
+
+        > label {
+            color: var(--colorFuenteMenu);
+            padding: 0.5em 1em 0.5em;
+        }
+    } 
+}
+
+.menu_head li:hover{
+    background: var(--colorBotonHover);
+}
+
+nav label[for="burger_menu"] {
+    display: flex;
+}
+
+nav label[for="burger_menu"]:hover {
+    color:var(--colorFuente);
+}
+
+#burger_menu:checked~.menu_head { /* el ~ sirve para referirse al hermano adyacente */
+    display: flex;
+    transform: translateX(-40%);
+    transition: 1s;
+    
+}
+
+#section_estilo {
+    position: sticky;               /* es un fixed pero para que se mueva a top: 0 cuando se baje mas del header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    z-index: 300;
+}
+
+nav label[for="menu_estilo"] {
+    display: flex;
+}
+
+nav label[for="menu_estilo"]:hover {
+    color:var(--colorFuente);
+}
+
+#menu_estilo:checked~.menu_head { /* el ~ sirve para referirse al hermano adyacente */
+    display: flex;
+    transform: translateX(-50%);
+    transition: 1s;
+}
+
+#li_estilos {
+    grid-column: 2;
+    margin-left: 5%;
+    width: fit-content;
+}
+
+.estilo_radio {
+    margin-left: 0;
+    text-align: left;
+    > label {
+        display: block;
+        input{
+            margin-left: 0;
+        }
+    } 
+    
+}
+
+@keyframes shake {
+    0% { transform: translateX(0)}
+    20% { transform: translateX(-5px)}
+    40% { transform: translateX(5px)}
+    60% { transform: translateX(-5px)}
+    80% { transform: translateX(5px)}
+    100% { transform: translateX(0)}
+
+}
+
+@media (max-width: 480px) {
+    #acceder {
+        > i {
+            text-align: center;
+        }
+    }
+}
+

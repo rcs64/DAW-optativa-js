@@ -1,0 +1,83 @@
+
+* {
+    margin: 0; /* esto es para que el header y el body puedan ocupar todo el espacio */
+}
+
+h2 {
+    padding-left: 1%;
+    padding-top: 1em;
+    font-style: italic;
+}
+
+h3 {
+    padding-left: 1%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-decoration: underline;
+}
+
+h4, time {
+    padding-left: 1%;
+}
+
+figure {
+    padding: 2em 0 2em 0;
+    width: 100%;
+    background-color: var(--colorFondoClaro);
+    align-items: center;
+    text-align: center;
+}
+
+#carrusel {
+    width: 30%;
+}
+
+article {
+    margin-bottom: 2em;
+}
+
+th {
+    background-color: var(--colorCeldaOscura);
+    border: 2px solid var(--colorBordes);
+    border-collapse: collapse;
+    padding: 1em 1em 1em 1em;
+}
+
+table, td {
+    background-color: var(--colorCeldaClara);
+    border: 2px solid var(--colorBordes);
+    border-collapse: collapse;
+    padding: 1em 1em 1em 1em;
+}
+
+time {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+table {
+    margin: auto;
+}
+
+th {
+    text-align: left;
+}
+
+#simular {
+    padding-bottom: 2em;
+}
+
+.miniatura {
+    width: 20%;
+    height: 20%;
+    margin: 1em 1em 1em 1em;
+}
+
+
+
+@media (max-width:480px) {
+    #carrusel {
+        width: 80%;
+    }
+}

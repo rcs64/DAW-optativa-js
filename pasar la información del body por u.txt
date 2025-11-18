@@ -1,0 +1,4 @@
+encriptar claves	 
+ordenar datos de países de mayor a menor
+consultas preparadas para el buscar 
+con un require hacer lo de las dos paginas de fotos que son iguales 

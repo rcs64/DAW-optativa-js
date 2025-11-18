@@ -1,0 +1,43 @@
+* {
+    margin: 0; /* esto es para que el header y el body puedan ocupar todo el espacio */
+}
+
+form {
+    border: 2px solid var(--colorBordes);
+    background-color: var(--colorBoton);
+    width: fit-content;
+    text-align: center;
+    margin: auto; /* sin esto se queda a la izquierda, porque he puesto margin 0 */
+    border-collapse: collapse;
+    margin-bottom: 2em;
+}
+
+#texto_mensaje {
+    display: block;
+    border-bottom: 2px solid var(--colorBordes);
+}
+
+textarea {
+    margin: 1em;
+    width: 90%;
+}
+
+#tipo_mensaje {
+    margin: 1em;
+}
+
+input {
+    margin: 1em;
+}
+
+@media (max-width:480px) {
+    form {
+        width: 80%;
+        margin-bottom: 2em;
+    }
+
+    #msg_type {
+        margin: auto;
+        display: block;
+    }
+}

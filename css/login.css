@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+}
+
+form {
+    width: fit-content;
+    text-align: left;
+    margin: auto; /* sin esto se queda a la izquierda, porque he puesto margin 0 */
+    border-collapse: collapse;
+}
+
+input {
+    padding-left: 0.5em;
+    margin: 1% 1em 1% 1em;
+}
+
+input:hover {
+    background-color: var(--colorBotonHover);
+    border-color: var(--colorBordeBoton);
+}
+
+label {
+    margin: 1% 1em 1% 1em;
+    display: block;
+}
+
+
+#confirmar {
+    margin: 1em 0 1em 4em;
+}
+
+#simulacion {
+    text-align: center;
+    margin: auto;
+}
+
+
+#password {
+    display: block;
+}
+
+#checkboxLogin {
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    margin-top: 15px;
+}
