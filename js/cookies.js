@@ -81,6 +81,45 @@ function actualizarCookie( event ) { // anyade la cookie o la cambia si ya estab
     }
 }
 
+function ventanaModal() {
+    let modal = document.createElement('section');
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    modal.style.display = 'flex';        
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = '1000';
+    
+    let h2 = document.createElement('h2');
+    h2.textContent = 'Cookies';
+
+    let modalContent = document.createElement('section');
+    modalContent.style.backgroundColor = 'white';
+    modalContent.style.width = '20%';
+    modalContent.style.padding = '20px';
+    modalContent.style.borderRadius = '5px';
+    modalContent.style.textAlign = 'center';
+
+    let message = document.createElement('p');
+    
+    
+    let texto_mensaje = `Se han guardado sus preferencias en cuanto a cookies. Para cambiar sus preferencias en cualquier momento, consulte nuestra política de cookies o siga el enlace que figura a pie de página.`
+
+    message.textContent = texto_mensaje;
+    
+    modalContent.appendChild(h2);
+    modalContent.appendChild(message);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal); // Agregar la ventana modal al documento 
+    const timeoutId = setTimeout(() => {
+        if (document.body.contains(modal)) document.body.removeChild(modal);
+    }, 5000);
+}
+
 function mostrarMensajeCookies() {
     if(document.cookie.split('cookiesAceptadas').length > 1) // si esta guardada la cookie cookiesAceptadas (duracion 90 dias)
         document.getElementById('cookies_mensaje').style = 'display: none'; // oculto el mensaje
@@ -115,6 +154,7 @@ function aceptarCookies() { // funcion para aceptar cookies
     mostrarEstadoCookies(); // y se llama a la funcion para que se actualice en el html de la politica de cookies
     actualizarCookie(event);
     actualizarRadio();
+    ventanaModal();
 }
  
 function rechazarCookies() { // funcion para rechazar cookies
@@ -124,4 +164,5 @@ function rechazarCookies() { // funcion para rechazar cookies
     let expira = "expires="+ d.toUTCString(); // guardo en formato string UTC esta informacion preparado para la cookie
     document.cookie = `cookiesAceptadas=false; ${expira}; path=/`; // lo mismo pero con false
     mostrarEstadoCookies();
+    ventanaModal();
 }
