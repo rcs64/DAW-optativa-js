@@ -1,54 +1,45 @@
 window.addEventListener('load', function() {
-
+    actualizarCookie();
+    actualizarRadio();
+    actualizarEstilo();
 });
-// Lee el valor de una cookie por nombre
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-}
 
+function actualizarRadio() { // actualiza el radiobutton para que coincida con la cookie
+    let estilo = document.cookie.split('estilo=')[1]; // consigo el estilo de la cookie
+    let todos_radio = document.querySelectorAll('input[type=radio]'); // consigo todos los radiobuttons
 
-// Aplica una hoja de estilos al documento. `href` debe ser la ruta al .css
-function applyStyleHref(href) {
-    if(!href) 
-        return;
-    let link = document.getElementById('estilo-actual');
-    if (!link) {
-        link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.id = 'estilo-actual';
-        document.head.appendChild(link);
-    }
-    if (link.href !== href && !link.href.endsWith(href)) {
-        // Usar href absoluto o relativo; asignar directamente
-        link.href = href;
+    for(let i=0; i< todos_radio.length; i++) { // recorro los radiobuttons
+        todos_radio[i].checked = false; // los descheckeo
+
+        if(todos_radio[i].id == estilo) // checkeo el que toca
+            todos_radio[i].checked = true;
     }
 }
 
-// Determina el archivo CSS asociado a un radio (intenta data-css, sino css/<id>.css)
-function cssFromRadio(radio) {
-    if (!radio) return null;
-    if (radio.dataset && radio.dataset.css) return radio.dataset.css;
-    // fallback: suponer que el id del radio corresponde a un archivo en carpeta css
-    return `css/${radio.id}.css`;
+function actualizarEstilo() { // actualiza el estilo de la pagina segun el radiobutton actual
+    let seleccionado = document.querySelector('input[type=radio]:checked');
+    if(seleccionado) {
+        let estilo = document.cookie.split('estilo=')[1];
+        let estilos_alternativos = document.querySelectorAll('link[rel="alternate stylesheet"]');
+        
+        for(let i=0; i<estilos_alternativos.length; i++) { // recorro todos los estilos alternativos
+            estilos_alternativos[i].disabled = true; // desactivo cada uno
+            
+            if(estilos_alternativos[i].href.split("css/")[1] == (estilo+'.css')) // si el estilo alternativo de esta iteracion es el que aparece en la cookie
+                estilos_alternativos[i].disabled = false; // lo activo
+        }
+    }
 }
 
-// Aplica el estilo según el radio seleccionado actualmente
-function actualizarEstilo() {
-    const seleccionado = document.querySelector('input[type=radio]:checked');
-    if (!seleccionado) return;
-    const css = cssFromRadio(seleccionado);
-    applyStyleHref(css);
-}
-
-function actualizarCookie() {
+function actualizarCookie() { // anyade la cookie o la cambia si ya estaba. Esta durara siempre 45 dias antes de expirar
     let estilo_elegido = document.querySelector('input[type=radio]:checked').id; // encuentro el estilo elegido segun el radio button checkado
     let d = new Date(); // defino variable de tipo date
     let dias = 45; // defino los dias que dura la cookie
     d.setTime(d.getTime() + (dias*24*60*60*1000)); // le sumo <dias> dias a la fecha
     let expira = "expires="+ d.toUTCString(); // guardo en formato string UTC esta informacion preparado para la cookie
-
-    document.cookie = `estilo=${estilo_elegido}; ${expira}; path=/`;
+    if(document.cookie.split('estilo=').length == 1)
+        document.cookie = `estilo=predeterminado; ${expira}; path=/`;
+    else
+        document.cookie = `estilo=${estilo_elegido}; ${expira}; path=/`;
+        
 }

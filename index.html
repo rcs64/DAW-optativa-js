@@ -47,11 +47,13 @@
                     <section id="section_estilo">
                         <label for="menu_estilo"><p><i class="fa-solid fa-circle-half-stroke"></i></p></label>
                         <input type="checkbox" id="menu_estilo">
-                        <ul class="menu_head" onchange="actualizarCookie();">
-                            <li class="estilo_radio"><label for="Pred"><input id="Pred" name="estilo" checked type="radio">Predeterminado</label></li>
-                            <li class="estilo_radio"><label for="Osc"><input id="Osc" name="estilo" type="radio">Oscuro</label></li>
-                            <li class="estilo_radio"><label for="Imp"><input id="Imp" name="estilo" type="radio">Imprenta</label></li>
-                            <li class="estilo_radio"><label for="Acc"><input id="Acc" name="estilo" type="radio">Accesibilidad</label></li>
+                        <ul class="menu_head" onchange="actualizarCookie(); actualizarEstilo();">
+                            <li class="estilo_radio"><label for="predeterminado"><input id="predeterminado" name="estilo" checked type="radio">Predeterminado</label></li>
+                            <li class="estilo_radio"><label for="oscuro"><input id="oscuro" name="estilo" type="radio">Oscuro</label></li>
+                            <li class="estilo_radio"><label for="imprenta"><input id="imprenta" name="estilo" type="radio">Imprenta</label></li>
+                            <li class="estilo_radio"><label for="letraGrande"><input id="letraGrande" name="estilo" type="radio">Tamaño grande</label></li>
+                            <li class="estilo_radio"><label for="contraste"><input id="contraste" name="estilo" type="radio">Alto contraste</label></li>
+                            <li class="estilo_radio"><label for="letraGrandeContraste"><input id="letraGrandeContraste" name="estilo" type="radio">Alto contraste</label></li>
                         </ul>
                     </section>
                 </li>
