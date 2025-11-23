@@ -83,6 +83,7 @@ function actualizarCookie( event ) { // anyade la cookie o la cambia si ya estab
 
 function ventanaModal() {
     let modal = document.createElement('section');
+    modal.style.all = 'initial';
     modal.style.position = 'fixed';
     modal.style.top = '0';
     modal.style.left = '0';
@@ -98,6 +99,7 @@ function ventanaModal() {
     h2.textContent = 'Cookies';
 
     let modalContent = document.createElement('section');
+    modalContent.style.all = 'initial';
     modalContent.style.backgroundColor = 'white';
     modalContent.style.width = '20%';
     modalContent.style.padding = '20px';
