@@ -1,0 +1,54 @@
+.cookiesSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cookieTipo {
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.cookieTipo strong {
+    color: blue;
+}
+
+.botonesSection {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.estadoCookies {
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.estadoCookies.aceptadas {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.estadoCookies.rechazadas {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+@media (max-width: 600px) {
+    .cookiesSection {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+
+    .botonesSection {
+        flex-direction: column;
+    }
+}
