@@ -181,3 +181,40 @@ h3 {
         padding: 0;
     }
 }
+
+/* esto es lo nuevo del trabajo optativo */
+#ordenamiento {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--colorNav);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--sombra);
+}
+
+#ordenamiento h3 {
+    font-weight: bold;
+    margin: 0;
+}
+
+#ordenar_resultados {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--colorBordeBoton);
+    background-color: var(--colorBoton);
+    cursor: pointer;
+    min-width: 250px;
+}
+
+#ordenar_resultados:hover {
+    border-color: var(--colorArticulo);
+    background-color: var(--colorBotonHover);
+}
+
+#ordenar_resultados:focus {
+    outline: none;
+    border-color: var(--colorBordesArticulos);
+    box-shadow: 0 0 3px var(--sombra);
+}

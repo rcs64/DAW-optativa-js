@@ -14,6 +14,7 @@
         <link rel="alternate stylesheet" type="text/css" href="css/letraGrandeContraste.css" title="Estilo de tamaño grande y alto contraste"/>
         <link rel="alternate stylesheet" type="text/css" href="css/imprenta.css" title="Estilo de imprenta"/>
         <link rel="alternate stylesheet" type="text/css" href="css/imprenta.css" title="Estilo de imprenta pero con media print" media="print"/>
+        <script src="js/cookies.js"></script>
     </head>
 
     <header>   
@@ -42,6 +43,20 @@
                     </nav>
                     
                 </li>
+                <li id="li_estilos" class="menu">
+                    <section id="section_estilo">
+                        <label for="menu_estilo"><p><i class="fa-solid fa-circle-half-stroke"></i></p></label>
+                        <input type="checkbox" id="menu_estilo">
+                        <ul class="menu_head" onchange="actualizarCookie(); actualizarEstilo();">
+                            <li class="estilo_radio"><label for="predeterminado"><input id="predeterminado" name="estilo" checked type="radio">Predeterminado</label></li>
+                            <li class="estilo_radio"><label for="oscuro"><input id="oscuro" name="estilo" type="radio">Oscuro</label></li>
+                            <li class="estilo_radio"><label for="imprenta"><input id="imprenta" name="estilo" type="radio">Imprenta</label></li>
+                            <li class="estilo_radio"><label for="letraGrande"><input id="letraGrande" name="estilo" type="radio">Tamaño grande</label></li>
+                            <li class="estilo_radio"><label for="contraste"><input id="contraste" name="estilo" type="radio">Alto contraste</label></li>
+                            <li class="estilo_radio"><label for="letraGrandeContraste"><input id="letraGrandeContraste" name="estilo" type="radio">Alto contraste</label></li>
+                        </ul>
+                    </section>
+                </li>
     
                 <li id="index">
                     <a href="index.html">Pisos & Inmuebles</a>
@@ -63,7 +78,7 @@
 
         <h1>Resultados de Búsqueda</h1>
 
-        <section id="sectionsBusquedaResultado">
+        <section id="sectionsBusquedaResultado"> 
             <section id="filtrosBusquedaLateral">
                 <h3>Filtros de Búsqueda</h3>
                 <form id="formBusquedaFiltros">
@@ -131,8 +146,51 @@
                 </form>
             </section>
 
-            <section id="sectionArticulos">
+            <section id="sectionArticulos"> <!-- este es el section nuevo para la busqueda filtrada -->
+                <section id="ordenamiento">
+                    <h3>Ordenar resultados</h3>
+                    <label for="ordenar_resultados">Ordenar por: </label>
+                    <select id="ordenar_resultados" class="input_select">
+                        <option value="">-- Selecciona un orden --</option>
+                        <optgroup label="Precio">
+                            <option value="precio_asc">Precio de más bajo a más alto</option>
+                            <option value="precio_desc">Precio de más alto a más bajo</option>
+                        </optgroup>
+                        <optgroup label="Título">
+                            <option value="titulo_asc">Título de A a Z</option>
+                            <option value="titulo_desc">Título de Z a A</option>
+                        </optgroup>
+                        <optgroup label="Fecha">
+                            <option value="fecha_desc">Más reciente primero</option>
+                            <option value="fecha_asc">Más antiguo primero</option>
+                        </optgroup>
+                        <optgroup label="Ciudad">
+                            <option value="ciudad_asc">Ciudad de A a Z</option>
+                            <option value="ciudad_desc">Ciudad de Z a A</option>
+                        </optgroup>
+                        <optgroup label="País">
+                            <option value="pais_asc">País de A a Z</option>
+                            <option value="pais_desc">País de Z a A</option>
+                        </optgroup>
+                    </select>
+                </section>
+
             <ul id="ul_articulos">
+                <li>
+                    <article>
+                        <a href="anuncio.html">
+                            <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
+                        </a>
+                        <a href="anuncio.html" class="a_tituloPublicacion">
+                            <h2>Apartamento en Valencia</h2>
+                        </a>  
+                        <p class="fecha">Fecha publicación: <time datetime="2025-11-15 10:30">15-11-2025 10:30</time></p>
+                        <p class="precio">Precio: 350.000€</p>
+                        <p class="pais">País: España</p>
+                        <p class="ciudad">Ciudad: Valencia</p>
+                        <p class="p_descripcionA">Apartamento moderno con 2 habitaciones, cocina americana y terraza. Cerca del centro.</p>    
+                    </article>       
+                </li>
                 <li>
                     <article>
                         <a href="anuncio.html">
@@ -145,22 +203,7 @@
                         <p class="precio">Precio: 200.000€</p>
                         <p class="pais">País: España</p>
                         <p class="ciudad">Ciudad: Orihuela</p>
-                        <p class="p_descripcionA">Piso grande en Orihuela, con 3 habitaciones y 2 baños. Patatas fritas incluidas.</p>    
-                    </article>       
-                </li>
-                <li>
-                    <article>
-                        <a href="alerta.html">
-                            <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
-                        </a>
-                        <a href="alerta.html" class="a_tituloPublicacion">
-                            <h2>Piso en Orihuela</h2>
-                        </a>  
-                        <p class="fecha">Fecha publicación: <time datetime="2025-09-27 20:00">27-09-2025 20:00</time></p>
-                        <p class="precio">Precio: 200.000€</p>
-                        <p class="pais">País: España</p>
-                        <p class="ciudad">Ciudad: Orihuela</p>
-                        <p class="p_descripcionA">Piso grande en Orihuela, con 3 habitaciones y 2 baños. Patatas fritas incluidas.</p>    
+                        <p class="p_descripcionA">Piso grande en Orihuela, con 3 habitaciones y 2 baños. Perfectamente renovado.</p>    
                     </article> 
                 </li>
                 <li>
@@ -169,13 +212,13 @@
                             <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
                         </a>
                         <a href="anuncio.html" class="a_tituloPublicacion">
-                            <h2>Piso en Orihuela</h2>
+                            <h2>Casa en Barcelona</h2>
                         </a>  
-                        <p class="fecha">Fecha publicación: <time datetime="2025-09-27 20:00">27-09-2025 20:00</time></p>
-                        <p class="precio">Precio: 200.000€</p>
+                        <p class="fecha">Fecha publicación: <time datetime="2025-11-10 14:45">10-11-2025 14:45</time></p>
+                        <p class="precio">Precio: 550.000€</p>
                         <p class="pais">País: España</p>
-                        <p class="ciudad">Ciudad: Orihuela</p>
-                        <p class="p_descripcionA">Piso grande en Orihuela, con 3 habitaciones y 2 baños. Patatas fritas incluidas.</p>    
+                        <p class="ciudad">Ciudad: Barcelona</p>
+                        <p class="p_descripcionA">Casa de ensueño con 4 habitaciones, jardín y piscina. Zona residencial.</p>    
                     </article>
                 </li>
                 <li>
@@ -184,18 +227,109 @@
                             <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
                         </a>
                         <a href="anuncio.html" class="a_tituloPublicacion">
-                            <h2>Piso en Orihuela</h2>
+                            <h2>Estudio en Madrid</h2>
                         </a>  
-                        <p class="fecha">Fecha publicación: <time datetime="2025-09-27 20:00">27-09-2025 20:00</time></p>
-                        <p class="precio">Precio: 200.000€</p>
+                        <p class="fecha">Fecha publicación: <time datetime="2025-11-20 09:15">20-11-2025 09:15</time></p>
+                        <p class="precio">Precio: 150.000€</p>
                         <p class="pais">País: España</p>
-                        <p class="ciudad">Ciudad: Orihuela</p>
-                        <p class="p_descripcionA">Piso grande en Orihuela, con 3 habitaciones y 2 baños. Patatas fritas incluidas.</p>    
+                        <p class="ciudad">Ciudad: Madrid</p>
+                        <p class="p_descripcionA">Estudio compacto y funcional en el corazón de Madrid. Ideal para inversión.</p>    
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <a href="anuncio.html">
+                            <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
+                        </a>
+                        <a href="anuncio.html" class="a_tituloPublicacion">
+                            <h2>Villa en Málaga</h2>
+                        </a>  
+                        <p class="fecha">Fecha publicación: <time datetime="2025-10-05 16:30">05-10-2025 16:30</time></p>
+                        <p class="precio">Precio: 450.000€</p>
+                        <p class="pais">País: España</p>
+                        <p class="ciudad">Ciudad: Málaga</p>
+                        <p class="p_descripcionA">Villa con vistas al mar, piscina privada y acceso a playa. Lujo garantizado.</p>    
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <a href="anuncio.html">
+                            <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
+                        </a>
+                        <a href="anuncio.html" class="a_tituloPublicacion">
+                            <h2>Piso en Alicante</h2>
+                        </a>  
+                        <p class="fecha">Fecha publicación: <time datetime="2025-11-18 11:20">18-11-2025 11:20</time></p>
+                        <p class="precio">Precio: 280.000€</p>
+                        <p class="pais">País: España</p>
+                        <p class="ciudad">Ciudad: Alicante</p>
+                        <p class="p_descripcionA">Piso céntrico con 3 habitaciones, ascensor y garaje. Zona comercial.</p>    
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <a href="anuncio.html">
+                            <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
+                        </a>
+                        <a href="anuncio.html" class="a_tituloPublicacion">
+                            <h2>Chalet en Sevilla</h2>
+                        </a>  
+                        <p class="fecha">Fecha publicación: <time datetime="2025-11-12 13:00">12-11-2025 13:00</time></p>
+                        <p class="precio">Precio: 320.000€</p>
+                        <p class="pais">País: España</p>
+                        <p class="ciudad">Ciudad: Sevilla</p>
+                        <p class="p_descripcionA">Chalet con terreno de 500 m², ideal para familias. Construcción de calidad.</p>    
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <a href="anuncio.html">
+                            <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
+                        </a>
+                        <a href="anuncio.html" class="a_tituloPublicacion">
+                            <h2>Apartamento en París</h2>
+                        </a>  
+                        <p class="fecha">Fecha publicación: <time datetime="2025-11-08 15:45">08-11-2025 15:45</time></p>
+                        <p class="precio">Precio: 420.000€</p>
+                        <p class="pais">País: Francia</p>
+                        <p class="ciudad">Ciudad: París</p>
+                        <p class="p_descripcionA">Appartement parisien en el Marais. Vistas a la catedral de Notre-Dame.</p>    
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <a href="anuncio.html">
+                            <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
+                        </a>
+                        <a href="anuncio.html" class="a_tituloPublicacion">
+                            <h2>Piso en Roma</h2>
+                        </a>  
+                        <p class="fecha">Fecha publicación: <time datetime="2025-11-03 08:00">03-11-2025 08:00</time></p>
+                        <p class="precio">Precio: 380.000€</p>
+                        <p class="pais">País: Italia</p>
+                        <p class="ciudad">Ciudad: Roma</p>
+                        <p class="p_descripcionA">Departamento antiguo reformado en centro histórico. Impresionantes techos.</p>    
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <a href="anuncio.html">
+                            <img class="imagen_articulo" src="img/orihuela.jpg" alt="Foto piso">
+                        </a>
+                        <a href="anuncio.html" class="a_tituloPublicacion">
+                            <h2>Chalet en Berlín</h2>
+                        </a>  
+                        <p class="fecha">Fecha publicación: <time datetime="2025-11-01 12:30">01-11-2025 12:30</time></p>
+                        <p class="precio">Precio: 320.000€</p>
+                        <p class="pais">País: Alemania</p>
+                        <p class="ciudad">Ciudad: Berlín</p>
+                        <p class="p_descripcionA">Chalet moderno con techos altos, grandes ventanales y área de trabajo.</p>    
                     </article>
                 </li>
             </ul>
         </section>
         </section>
+        <script src="js/ordenar_anuncios.js"></script> 
     </body>
     
     <footer> ©<time datetime="2025">2025</time> PI - Pisos & Inmuebles - Desarrollado por Ariadna Guillén y Raúl Cervera. <a href="accesibilidad.html">Accesibilidad de la Página</a></footer>
