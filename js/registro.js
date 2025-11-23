@@ -511,7 +511,7 @@ function validarEmail() {
     return output;
 }
 
-function validarPass() { //////////// CAMBIAR EL IF if(!caracterInvalido && mayusSi && minusSi && numSi) 
+function validarPass() {
     let campoTexto = document.getElementById('password');
     let texto = campoTexto.value;
     let mayusSi = false;

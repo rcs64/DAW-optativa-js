@@ -16,7 +16,6 @@ input, select {
 
 label {
     margin: 1em 1em 0 1em;
-    display: block;
 }
 
 #foto {
@@ -24,12 +23,8 @@ label {
     margin: 1em 1em 1em 0.5em;
 }
 
-.errorForm {
-    display: flex;
-
-    > p {
-        color: var(--colorBordeError);
-    }
+label {
+    display: block;
 }
 
 
