@@ -15,6 +15,7 @@
         <link rel="alternate stylesheet" type="text/css" href="css/imprenta.css" title="Estilo de imprenta"/>
         <link rel="alternate stylesheet" type="text/css" href="css/imprenta.css" title="Estilo de imprenta pero con media print" media="print"/>
         <script src="js/login.js"></script>
+        <script src="js/cookies.js"></script>
     </head>
 
     <header>   
@@ -42,6 +43,21 @@
                         </ul>
                     </nav>
                     
+                </li>
+
+                <li id="li_estilos" class="menu">
+                    <section id="section_estilo">
+                        <label for="menu_estilo"><p><i class="fa-solid fa-circle-half-stroke"></i></p></label>
+                        <input type="checkbox" id="menu_estilo">
+                        <ul class="menu_head" onchange="actualizarCookie(event); actualizarEstilo();">
+                            <li class="estilo_radio"><label for="predeterminado"><input id="predeterminado" name="estilo" checked type="radio">Predeterminado</label></li>
+                            <li class="estilo_radio"><label for="oscuro"><input id="oscuro" name="estilo" type="radio">Oscuro</label></li>
+                            <li class="estilo_radio"><label for="imprenta"><input id="imprenta" name="estilo" type="radio">Imprenta</label></li>
+                            <li class="estilo_radio"><label for="letraGrande"><input id="letraGrande" name="estilo" type="radio">Tamaño grande</label></li>
+                            <li class="estilo_radio"><label for="contraste"><input id="contraste" name="estilo" type="radio">Alto contraste</label></li>
+                            <li class="estilo_radio"><label for="letraGrandeContraste"><input id="letraGrandeContraste" name="estilo" type="radio">Alto contraste</label></li>
+                        </ul>
+                    </section>
                 </li>
     
                 <li id="index">

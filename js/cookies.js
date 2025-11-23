@@ -31,15 +31,22 @@ function actualizarEstilo() { // actualiza el estilo de la pagina segun el radio
     }
 }
 
-function actualizarCookie() { // anyade la cookie o la cambia si ya estaba. Esta durara siempre 45 dias antes de expirar
+function actualizarCookie( event ) { // anyade la cookie o la cambia si ya estaba. Esta durara siempre 45 dias antes de expirar
     let estilo_elegido = document.querySelector('input[type=radio]:checked').id; // encuentro el estilo elegido segun el radio button checkado
     let d = new Date(); // defino variable de tipo date
     let dias = 45; // defino los dias que dura la cookie
     d.setTime(d.getTime() + (dias*24*60*60*1000)); // le sumo <dias> dias a la fecha
     let expira = "expires="+ d.toUTCString(); // guardo en formato string UTC esta informacion preparado para la cookie
-    if(document.cookie.split('estilo=').length == 1)
-        document.cookie = `estilo=predeterminado; ${expira}; path=/`;
-    else
-        document.cookie = `estilo=${estilo_elegido}; ${expira}; path=/`;
-        
+    if(event) {
+        if(event.type !== 'load') // si no tiene que esperar a que cargue el elemento es que simplemente he seleccionado otro radiobutton (onchange).
+            document.cookie = `estilo=${estilo_elegido}; ${expira}; path=/`;
+        else {// si es load
+            if(document.cookie.split('estilo=').length == 1) // si no habia cookie
+                document.cookie = `estilo=predeterminado; ${expira}; path=/`;
+            else {
+                estilo_elegido = document.cookie.split('estilo=')[1]; // copio el estilo que ya habia
+                document.cookie = `estilo=${estilo_elegido}; ${expira}; path=/`; // actualizo el tiempo de vida de la cookie
+            }
+        }
+    }
 }
