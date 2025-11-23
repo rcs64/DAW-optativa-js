@@ -73,14 +73,14 @@ function ventanaModal( email, pass, nombre, repeatPass, sex, edad, numError ) {
     modal.style.left = '0';
     modal.style.width = '100%';
     modal.style.height = '100%';
-    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    modal.style.backgroundColor = 'var(--colorFondo)';
     modal.style.display = 'flex';        
     modal.style.justifyContent = 'center';
     modal.style.alignItems = 'center';
     modal.style.zIndex = '1000';
 
     let modalContent = document.createElement('section');
-    modalContent.style.backgroundColor = 'white';
+    modalContent.style.backgroundColor = 'var(--colorNav)';
     modalContent.style.padding = '20px';
     modalContent.style.borderRadius = '5px';
     modalContent.style.textAlign = 'center';
@@ -267,6 +267,7 @@ function ventanaModal( email, pass, nombre, repeatPass, sex, edad, numError ) {
 
     let closeButton = document.createElement('button');
     closeButton.textContent = 'Cerrar';
+    closeButton.className = 'boton';
     closeButton.style.marginTop = '10px';
     closeButton.onclick = function () {
 

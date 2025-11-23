@@ -288,6 +288,25 @@ nav label[for="menu_estilo"]:hover {
     
 }
 
+#cookies_mensaje {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    background-color: var(--colorNav);
+    
+    > nav {
+        margin-top: 1em;
+        > p {
+            padding: 0 3em 0 3em;
+        }
+    }
+
+    > button {
+        margin: 1em 0 1em 0;
+    }
+}
+
 @keyframes shake {
     0% { transform: translateX(0)}
     20% { transform: translateX(-5px)}
