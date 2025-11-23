@@ -247,6 +247,7 @@ nav label[for="burger_menu"]:hover {
 }
 
 #section_estilo {
+    all: initial;
     position: sticky;               /* es un fixed pero para que se mueva a top: 0 cuando se baje mas del header */
     display: flex;
     align-items: center;
@@ -289,6 +290,7 @@ nav label[for="menu_estilo"]:hover {
 }
 
 #cookies_mensaje {
+    all: initial; /* con esto deshago cualquier cambio que hubiese sobre este tipo de contenedor (section) */
     display: block;
     position: fixed;
     bottom: 0;
